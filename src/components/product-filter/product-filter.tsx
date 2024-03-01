@@ -48,6 +48,7 @@ function ProductFilter(props: ProductFilterProps) {
   };
 
   const getfilterItems = async () => {
+    if (!filterValue.length) return toast.error('Напишите значения для фильтра');
     try {
       const data = await getFilteredItems({
         [filterType]: filterType === FILTER_TYPES.PRICE ? +filterValue : filterValue,

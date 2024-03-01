@@ -35,7 +35,7 @@ function ProductList() {
       }
     }
     getIdsAndUpdateState();
-  }, []);
+  }, [isErrorIds]);
 
   useEffect(() => {
     if (!idList || !idList.length) return;
@@ -60,7 +60,7 @@ function ProductList() {
       }
     }
     getProductItemsAndUpdateState();
-  }, [page, idList]);
+  }, [page, idList, isErrorItems]);
 
   if (isLoading) return;
 
