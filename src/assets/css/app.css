@@ -1,0 +1,22 @@
+.app__wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.app__filter__btn {
+  visibility: hidden;
+}
+
+@media (max-width: 860px) {
+  .app__filter__btn {
+    visibility: visible;
+    top: 10px;
+    left: 10px;
+    position: absolute;
+    opacity: 0.5;
+    transition: all 1s;
+  }
+  .app__filter__btn:hover {
+    opacity: 1;
+  }
+}

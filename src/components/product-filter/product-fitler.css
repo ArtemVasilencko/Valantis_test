@@ -1,0 +1,44 @@
+.product__filter__wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  max-width: 350px;
+  width: 100%;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.6s;
+}
+
+.product__filter__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.product__filter__title {
+  color: #007bff;
+}
+
+.product__filter__pagination {
+  margin-top: auto;
+  align-self: center;
+}
+
+@media (max-width: 860px) {
+  .product__filter__wrapper {
+    position: fixed;
+    left: -500px;
+    top: 15px;
+  }
+  .product__filter__wrapper--active {
+    position: fixed;
+    left: 0px;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+  }
+}
