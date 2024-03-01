@@ -26,6 +26,7 @@ function ProductFilter(props: ProductFilterProps) {
   const [filterType, setFilterType] = useState('product');
 
   const handlePaginationChange = (e: React.ChangeEvent<unknown>, value: number) => {
+    e.preventDefault();
     dispatch(setActivePage(value));
   };
 
