@@ -3,7 +3,7 @@ import { API } from '../shared/api';
 
 export async function getProductItems(selectIds: string[]) {
   const authString = md5(`${API.AUTH_STRING.PASSWORD}_${API.AUTH_STRING.TIMESTAMP}`);
-  const response = await fetch('http://api.valantis.store:40000/', {
+  const response = await fetch('https://api.valantis.store:41000/', {
     method: 'POST',
     headers: { 'X-Auth': authString, 'Content-Type': 'application/json' },
     body: JSON.stringify({
