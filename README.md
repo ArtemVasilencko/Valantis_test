@@ -1,5 +1,7 @@
 # Тестовое задание в Valantis
 
+Deploy - https://artemvasilencko.github.io/Valantis_test/
+
 ### Используемые технологии:
 
 ```
