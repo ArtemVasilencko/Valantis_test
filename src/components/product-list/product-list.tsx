@@ -30,7 +30,7 @@ function ProductList() {
         dispatch(setPageCount(Math.ceil(data.length / API.PAGINATION.LIMIT)));
       } catch (error) {
         console.log(error);
-        console.log('Произошла ошибка во время запроса ids, пробуем еще раз');
+        console.log(API.ERROR_ITEMS_REQUEST);
         dispatch(setIsErrorIds(!isErrorIds));
       }
     }
@@ -52,8 +52,8 @@ function ProductList() {
         dispatch(setProducts(filterProducts(data)));
       } catch (error) {
         console.log(error);
-        console.log('Произошла ошибка во время запроса items, пробуем еще раз');
-        toast.error('Произошла ошибка во время запроса items, пробуем еще раз');
+        console.log(API.ERROR_ITEMS_REQUEST);
+        toast.error(API.ERROR_ITEMS_REQUEST);
         dispatch(setIsErrorItems(!isErrorItems));
       } finally {
         dispatch(setIsLoading(false));

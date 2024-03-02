@@ -10,4 +10,5 @@ export const API = {
   },
   PAGINATION: { DEFAULT_PAGE: 1, LIMIT: 50 },
   ERROR_MESSAGE: 'An error occurred, try again',
+  ERROR_ITEMS_REQUEST: 'Произошла ошибка во время загрузки товаров, \nПробуем еще раз',
 };

@@ -42,7 +42,7 @@ function ProductFilter(props: ProductFilterProps) {
       dispatch(setPageCount(Math.ceil(data.length / API.PAGINATION.LIMIT)));
     } catch (error) {
       console.log(error);
-      console.log('Произошла ошибка во время загрузки товаров, \nПробуем еще раз');
+      console.log(API.ERROR_ITEMS_REQUEST);
       resetFilters();
     }
   };
@@ -61,7 +61,7 @@ function ProductFilter(props: ProductFilterProps) {
       toast.success(`Вот что было найдено по фильтру - \n${filterType}: ${filterValue}`);
     } catch (error) {
       console.log(error);
-      console.log('Произошла ошибка во время загрузки товаров, \nПробуем еще раз');
+      console.log(API.ERROR_ITEMS_REQUEST);
       getfilterItems();
     }
   };
