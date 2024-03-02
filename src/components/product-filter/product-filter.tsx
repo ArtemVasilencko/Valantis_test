@@ -42,7 +42,7 @@ function ProductFilter(props: ProductFilterProps) {
       dispatch(setPageCount(Math.ceil(data.length / API.PAGINATION.LIMIT)));
     } catch (error) {
       console.log(error);
-      console.log('Произошла ошибка во время запроса items, пробуем еще раз');
+      console.log('Произошла ошибка во время загрузки товаров, \nПробуем еще раз');
       resetFilters();
     }
   };
@@ -53,12 +53,15 @@ function ProductFilter(props: ProductFilterProps) {
       const data = await getFilteredItems({
         [filterType]: filterType === FILTER_TYPES.PRICE ? +filterValue : filterValue,
       });
+      if (!data.length)
+        return toast.error(`Не найдено изделий по фильтру - \n${filterType}: ${filterValue}`);
       dispatch(setIdList(data));
       dispatch(setPageCount(Math.ceil(data.length / API.PAGINATION.LIMIT)));
       dispatch(setActivePage(API.PAGINATION.DEFAULT_PAGE));
+      toast.success(`Вот что было найдено по фильтру - \n${filterType}: ${filterValue}`);
     } catch (error) {
       console.log(error);
-      console.log('Произошла ошибка во время запроса items, пробуем еще раз');
+      console.log('Произошла ошибка во время загрузки товаров, \nПробуем еще раз');
       getfilterItems();
     }
   };
