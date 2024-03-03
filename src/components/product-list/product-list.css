@@ -1,6 +1,6 @@
 .product__list__wrapper {
   overflow: auto;
-  padding: 15px;
+  padding: 20px;
   max-height: 100vh;
   display: block;
 }
