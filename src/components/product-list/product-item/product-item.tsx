@@ -20,7 +20,7 @@ function ProductItem(props: ProductItemProps) {
       <Typography variant="body1">id: {id}</Typography>
       <Typography variant="body1">Бренд: {brand ? brand : ' Неизвестно'}</Typography>
       <Typography variant="body1" className={CLASSES.PRODUCT_ITEM.PRICE}>
-        Цена: {price}
+        Цена: {price}₽
       </Typography>
     </Paper>
   );

@@ -1,7 +1,7 @@
 import { Box, Button, Pagination, TextField, Typography } from '@mui/material';
 import RadioGroupCustom from '../radio-group/radio-group';
-import CloseIcon from '@mui/icons-material/Close';
-import { useState } from 'react';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { API } from '../../shared/api';
 import { CLASSES } from '../../shared/classes';
@@ -14,11 +14,11 @@ import { FILTER_TYPES } from '../../shared/filter';
 import './product-fitler.css';
 
 interface ProductFilterProps {
-  className: string;
+  active: boolean;
 }
 
 function ProductFilter(props: ProductFilterProps) {
-  const { className } = props;
+  const { active } = props;
   const dispatch = useAppDispatch();
   const page = useAppSelector((state) => state.pagination.page);
   const pageCount = useAppSelector((state) => state.pagination.pageCount);
@@ -29,6 +29,12 @@ function ProductFilter(props: ProductFilterProps) {
     e.preventDefault();
     dispatch(setActivePage(value));
   };
+
+  useEffect(() => {
+    return () => {
+      toast.dismiss(); // очитска уведомлений при unmounting стадии
+    };
+  });
 
   const resetFilters = async () => {
     if (!filterValue.length && page === API.PAGINATION.DEFAULT_PAGE)
@@ -67,13 +73,19 @@ function ProductFilter(props: ProductFilterProps) {
   };
 
   return (
-    <Box className={className}>
+    <Box
+      className={
+        active
+          ? `${CLASSES.PRODUCT_FILTER.WRAPPER_ACTIVE} ${CLASSES.PRODUCT_FILTER.WRAPPER}`
+          : CLASSES.PRODUCT_FILTER.WRAPPER
+      }
+    >
       <Box className={CLASSES.PRODUCT_FILTER.HEADER}>
         <Typography className={CLASSES.PRODUCT_FILTER.TITLE} variant="h3">
           Фильтры
         </Typography>
         <Button variant="contained" onClick={resetFilters}>
-          <CloseIcon />
+          <DeleteIcon />
         </Button>
       </Box>
 

@@ -18,9 +18,7 @@ function ProductList() {
   const products = useAppSelector((state) => state.products.productsList);
   const idList = useAppSelector((state) => state.products.idList);
   const page = useAppSelector((state) => state.pagination.page);
-  const isLoading = useAppSelector((state) => state.status.isLoading);
-  const isErrorItems = useAppSelector((state) => state.status.isErrorItems);
-  const isErrorIds = useAppSelector((state) => state.status.isErrorIds);
+  const { isLoading, isErrorItems, isErrorIds } = useAppSelector((state) => state.status);
 
   useEffect(() => {
     async function getIdsAndUpdateState() {
