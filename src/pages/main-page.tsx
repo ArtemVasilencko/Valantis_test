@@ -11,11 +11,11 @@ import { useState, useEffect, useRef } from 'react';
 function MainPage() {
   const isLoading = useAppSelector((state) => state.status.isLoading);
   const [isOpen, setIsOpen] = useState(false);
-  const productFilterRef = useRef(null);
+  const productFilterRef = useRef<HTMLDivElement>(null); // Указываем тип явно как HTMLDivElement
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (productFilterRef.current && !productFilterRef.current.contains(event.target)) {
+      if (productFilterRef.current && !productFilterRef.current.contains(event.target as Node)) {
         setIsOpen(false);
       }
     };
